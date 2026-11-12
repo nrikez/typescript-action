@@ -35,6 +35,7 @@ jobs:
     uses: ./.github/workflows/deploy-template.yml
     with:
       environment-name: 'uat'    
+      run_id: ${{ github.event.workflow_run.id }}
     # 🌟 Explicitly maps the secret permission layer to the template
     secrets: inherit 
   # =========================================================================
@@ -46,5 +47,6 @@ jobs:
     uses: ./.github/workflows/deploy-template.yml
     with:
       environment-name: 'prod'  
+      run_id: ${{ github.event.workflow_run.id }}
     # 🌟 Explicitly maps the secret permission layer to the template
     secrets: inherit
