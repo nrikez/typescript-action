@@ -22,7 +22,7 @@ jobs:
     uses: ./.github/workflows/deploy-template.yml
     with:
       environment-name: 'dev' 
-      run-id: ${{ github.event.workflow_run.id }}
+      run_id: ${{ github.event.workflow_run.id }}
     # 🌟 Explicitly maps the secret permission layer to the template
     secrets: inherit
  
