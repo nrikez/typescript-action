@@ -7,20 +7,22 @@ on:
 permissions:
   id-token: write # 🌟 Required for requesting the JWT OIDC token
   contents: read  # 🌟 Required for actions/checkout
+  actions: read
 jobs:
   # Call your completely separate existing CI file
-  ci:
-    uses: ./.github/workflows/eh-ci.yml
+  # ci:
+    # uses: ./.github/workflows/eh-ci.yml
  
   # =========================================================================
   # DEPLOY TO DEV (REUSING TEMPLATE)
   # =========================================================================
   deploy-dev:
     name: Dev Stage
-    needs: ci    
+    #needs: ci    
     uses: ./.github/workflows/deploy-template.yml
     with:
       environment-name: 'dev' 
+      run-id: ${{ github.event.workflow_run.id }}
     # 🌟 Explicitly maps the secret permission layer to the template
     secrets: inherit
  
