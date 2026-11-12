@@ -48,6 +48,6 @@ jobs:
             powershell -Command "
               cd C:\apps\my-ts-app-100;
               npm ci --omit=dev;
-              pm2 restart my-ts-app || pm2 start dist/index.js --name my-ts-app;
+              pm2 restart my-ts-app || pm2 start dist/index.js --name edward;
               pm2 save
             "
