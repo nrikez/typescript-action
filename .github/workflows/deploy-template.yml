@@ -8,7 +8,7 @@ on:
         description: "The targeted GitHub environment name (e.g., dev, uat, prod)"
       run_id:
         required: true
-        type: number
+        type: string
 permissions:
   contents: read
   actions: read
